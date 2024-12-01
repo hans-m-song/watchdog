@@ -1,0 +1,14 @@
+# example watchdog configuration
+
+tasks:
+  - name: foo
+    command: echo "foo" && sleep 3s && exit 1
+
+  - name: bar
+    command: echo "bar" && sleep 5s && exit 1
+    restart_on_exit: true
+
+  - name: baz
+    command: echo "baz" && sleep 1m
+    paths:
+      - "**.go"
